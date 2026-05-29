@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Germany AI Exposure Dashboard</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap bar">
+      <div class="brand">
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 17 12 4l8 13"></path>
+            <path d="M8 17h8"></path>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-kicker">Germany occupational exposure dashboard</div>
+          <div class="brand-title">Germany AI Impact Dashboard</div>
+        </div>
+      </div>
+      <div class="controls">
+        <select id="metric">
+          <option value="digital">Digital AI exposure</option>
+          <option value="ai">Overall AI exposure</option>
+          <option value="automation">Automation exposure</option>
+          <option value="pay">Monthly pay</option>
+        </select>
+        <select id="groupFilter">
+          <option value="all">All groups</option>
+        </select>
+        <button id="themeToggle" type="button">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="pill">Germany occupational exposure dashboard</div>
+      <h1>Occupations in Germany, mapped by employment and AI impact.</h1>
+      <p class="sub">
+        This prototype maps Germany occupations by employment and exposure. Each tile is an occupation,
+        area reflects employment, and color reflects the selected layer. The main emphasis is digital AI
+        exposure, with alternative views for overall AI exposure, automation exposure, and monthly pay.
+      </p>
+    </section>
+
+    <section class="grid">
+      <aside class="panel side">
+        <div>
+          <div class="small">How to read</div>
+          <p class="small">Bigger tiles mean more workers. Green means lower impact, yellow is middle, and red means higher impact on the chosen layer.</p>
+        </div>
+        <div class="kpis">
+          <div class="kpi">
+            <div class="v" id="kpiJobs">-</div>
+            <div class="l">Workers covered</div>
+          </div>
+          <div class="kpi">
+            <div class="v" id="kpiOcc">-</div>
+            <div class="l">Occupations</div>
+          </div>
+          <div class="kpi">
+            <div class="v" id="kpiTop">-</div>
+            <div class="l">Top exposed</div>
+          </div>
+          <div class="kpi">
+            <div class="v" id="kpiPay">-</div>
+            <div class="l">Median listed pay</div>
+          </div>
+        </div>
+        <div>
+          <div class="small" style="margin-bottom:8px">Color scale</div>
+          <div id="scale" class="scale"></div>
+          <div class="small scale-labels"><span>Lower impact</span><span>Higher impact</span></div>
+        </div>
+        <div class="note-small">
+          Next production step: replace the provisional fields with exact GENESIS, Destatis, BA, and Eurostat extracts mapped to KldB/ISCO groups.
+        </div>
+      </aside>
+
+      <section class="panel viz">
+        <div id="chart"></div>
+      </section>
+    </section>
+
+    <section class="panel note">
+      <h2>Method notes</h2>
+      <p class="small">
+        This dashboard uses official German and EU labor statistics for the occupation base layer, then applies our own task-based AI exposure analysis on top.
+      </p>
+      <p class="small">
+        Official source backbone: Destatis occupation employment tables, Destatis earnings tables, Eurostat LFS occupation data, and KldB 2010 / ISCO classification metadata.
+      </p>
+      <p class="small">
+        Analytical layer: our AI exposure, automation exposure, and outlook scores are modeled interpretations of occupational task structure, not official statistics.
+      </p>
+      <div class="small" style="margin:14px 0 8px">Sources</div>
+      <ul class="small links">
+        <li><a href="https://www.destatis.de/EN/Themes/Labour/Labour-Market/Employment/Tables/occupations-gender.html" target="_blank" rel="noopener noreferrer">Destatis: employees by occupational activity (KldB 2010)</a></li>
+        <li><a href="https://www.destatis.de/EN/Themes/Labour/Earnings/Branch-Occupation/_node.html" target="_blank" rel="noopener noreferrer">Destatis: earnings by branch and occupation</a></li>
+        <li><a href="https://ec.europa.eu/eurostat/web/lfs" target="_blank" rel="noopener noreferrer">Eurostat: Labour Force Survey overview</a></li>
+        <li><a href="https://ec.europa.eu/eurostat/web/lfs/information-data" target="_blank" rel="noopener noreferrer">Eurostat: LFS information and classifications</a></li>
+        <li><a href="https://metadaten.bibb.de/en/group/classification/1" target="_blank" rel="noopener noreferrer">BIBB: KldB classification metadata</a></li>
+        <li><a href="https://esco.ec.europa.eu/en/classification/occupation_main" target="_blank" rel="noopener noreferrer">ESCO: occupation classification</a></li>
+        <li><a href="https://www.oecd.org/en/topics/sub-issues/ai-and-work.html" target="_blank" rel="noopener noreferrer">OECD: AI and work</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="tooltip" id="tooltip"></div>
+  <script src="jobs-data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
