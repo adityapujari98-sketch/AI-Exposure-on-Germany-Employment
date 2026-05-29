@@ -26,12 +26,6 @@ A Germany-focused AI impact dashboard built on official labor-market sources, wi
 - ESCO occupation classification: https://esco.ec.europa.eu/en/classification/occupation_main
 - OECD AI and work: https://www.oecd.org/en/topics/sub-issues/ai-and-work.html
 
-## Screenshot
-
-![Germany AI Impact Dashboard](docs/dashboard.png)
-
-If you want the screenshot embedded here, save the image as `docs/dashboard.png` and commit it with the repository.
-
 ## Notes
 
 - `KldB 2010` refers to the occupation classification system, not the year of the data.
