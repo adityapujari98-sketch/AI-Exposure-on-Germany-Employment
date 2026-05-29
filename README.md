@@ -4,7 +4,7 @@ A Germany-focused AI impact dashboard built on official labor-market sources, wi
 
 ## Live Access
 
-- Open `index.html` locally in a browser.
+- Open `index.html` locally in a browser : http://127.0.0.1:5500/index.html
 - If you run a local server, use the root of this repo as the web folder.
 - GitHub repo: https://github.com/adityapujari98-sketch/AI-Exposure-on-Germany-Employment
 
