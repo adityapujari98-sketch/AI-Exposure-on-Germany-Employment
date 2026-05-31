@@ -1,5 +1,6 @@
 # Germany AI Impact Dashboard
 
+website link - https://aiexposure.netlify.app/
 A Germany-focused AI impact dashboard built on official labor-market sources, with AI exposure and automation impact modeled as our analytical layer.
 <img width="1582" height="921" alt="image" src="https://github.com/user-attachments/assets/2376debd-c0d6-44ec-85b0-f45223c273e2" />
 
